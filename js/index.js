@@ -7,6 +7,7 @@ $(document).ready(function() {
   var menu5 = false;
   
   var cartOpen = false;
+  var userOpen = false;
 
     $('.Navigation').on('mousedown touchstart', function() {
     
@@ -56,17 +57,19 @@ $(document).ready(function() {
 			 document.getElementById("UserSlide").style.width = "0px";
 			 document.getElementById("CartSlide").style.width = "300px";
 			cartOpen = !cartOpen;
+			userOpen = false;
 		}
 	})
 	
 	$('#User').click(function(){
 		if(cartOpen){
 			 document.getElementById("UserSlide").style.width = "0px";
-			cartOpen = !cartOpen;
+			userOpen = !userOpen;
 		}else{
 			 document.getElementById("CartSlide").style.width = "0px";
 			 document.getElementById("UserSlide").style.width = "300px";
-			cartOpen = !cartOpen;
+			userOpen = !userOpen;
+			cartOpen = false;
 		}
 	})
 });
