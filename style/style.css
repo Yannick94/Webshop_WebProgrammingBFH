@@ -1,11 +1,4 @@
 
-
-
-
-body {
-	
-}
-
 div{
 	border-width: 2px;
 	border-radius: 5px;
@@ -36,15 +29,8 @@ div.Header {
 	min-height: 100px;
 }
 
-div.Navigation {
-	width: 15%;
-	height:80%;
-	min-height: 500px;
-	float: left;
-}
-
 div.MainContent {
-	width: 84%;
+	width: 99.6%;
 	height:80%;
 	min-height: 500px;
 	float:right;
@@ -55,4 +41,125 @@ div.Footer{
 	height: 10%;
 	min-height: 100px;
 	clear:both;
+	bottom:0;
 }
+
+body {
+    
+}
+
+.Navigation {
+  top:15px;
+  left:15px;
+  position:fixed;
+ display:block;
+  width:100px;
+  height:100px;
+  background-color:transparent;
+  border-radius:50%;
+  z-index:20;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.Audio {
+  width:50%;
+  height:50%;
+  background-color:dimGray;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+    top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    position:absolute;
+}
+.Software {
+  width:50%;
+  height:50%;
+  background-color:dimGray;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+    top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .2s;
+}
+.Peripherie {
+  width:50%;
+  height:50%;
+  background-color:dimGray;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+    top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .4s;  
+}
+  .Hardware{
+  width:50%;
+  height:50%;
+  background-color:dimGray;
+  border-radius:50%;
+  position:absolute;
+  color:white;
+  text-align:center;
+  line-height:70px;
+  top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .6s;  
+}
+.Home{
+	height: 50%;
+	width: 50%;
+	background-color: dimGray;
+	border-radius: 50%;
+	position: absolute;
+	color: white;
+	text-align: center;
+	line-height:70px;
+	top: 25%;
+	left:25%;
+	transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .8s;
+}
+
+.Menu {
+  top:15px;
+  left:15px;
+  width:100px;
+  height:100px;
+  background:darkSlateGray;
+  border-radius:50%;
+  position:absolute;
+  z-index:21;
+  color:white;
+  text-align:center;
+  line-height:120px;
+  cursor:pointer;
+  position:fixed;
+}
+
+a.NavLink:visited {
+	color: #000;
+}
+
+a.NavLink:link {
+	color: #000;
+}
+
+a.NavLink:active {
+	color: #000;
+}
+
+a.NavLink:hover {
+	color: #000;
+}
+
