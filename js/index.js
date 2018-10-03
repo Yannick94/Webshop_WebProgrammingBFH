@@ -5,6 +5,8 @@ $(document).ready(function() {
   var menu3 = false;
   var menu4 = false;
   var menu5 = false;
+  
+  var cartOpen = false;
 
     $('.Navigation').on('mousedown touchstart', function() {
     
@@ -45,4 +47,26 @@ $(document).ready(function() {
 	$('#NavHome').click(function(){setTimeout(function () {
         location.href = "mainPage.html";
     }, 1000);});
+	
+	$('#ShoppingCart').click(function(){
+		if(cartOpen){
+			 document.getElementById("CartSlide").style.width = "0px";
+			cartOpen = !cartOpen;
+		}else{
+			 document.getElementById("UserSlide").style.width = "0px";
+			 document.getElementById("CartSlide").style.width = "300px";
+			cartOpen = !cartOpen;
+		}
+	})
+	
+	$('#User').click(function(){
+		if(cartOpen){
+			 document.getElementById("UserSlide").style.width = "0px";
+			cartOpen = !cartOpen;
+		}else{
+			 document.getElementById("CartSlide").style.width = "0px";
+			 document.getElementById("UserSlide").style.width = "300px";
+			cartOpen = !cartOpen;
+		}
+	})
 });
