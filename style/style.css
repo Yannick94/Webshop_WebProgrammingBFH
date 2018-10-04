@@ -183,12 +183,12 @@ h1.TitleText{
 }
 
 div.sidenav {
-	float: right;
-    height: 75%;
+    position: absolute;
+    left: calc(100% - 300px);
+    top: 120px;
+    height: 100%;
     width: 0;
     z-index: 1;
-    top: 0;
-    left: 0;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
