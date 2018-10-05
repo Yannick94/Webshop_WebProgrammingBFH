@@ -173,7 +173,7 @@ a.NavLink:active {
 }
 
 a.NavLink:hover {
-	color: #000;
+	color: #00007F;
 	cursor: pointer;
 }
 
@@ -184,15 +184,22 @@ h1.TitleText{
 
 div.sidenav {
     position: absolute;
-    left: calc(100% - 300px);
+    left: calc(100% - 400px);
     top: 120px;
-    height: 100%;
+    height: calc(100% - 200px);
     width: 0;
     z-index: 1;
     background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+}
+
+div.ProductList{
+	position: absolute;
+	height:100%;
+	width: 500px;
+	background-color: yellow;
 }
 
 
