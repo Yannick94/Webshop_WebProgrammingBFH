@@ -178,8 +178,14 @@ a.NavLink:hover {
 }
 
 h1.TitleText{
+	font-size: 60px;
+	font-family: "Lucida Console", Monaco, monospace;
+	float: left;
+}
+
+img.Logo{
 	margin-left:225px;
-	font-size: 45px;
+	float: left;
 }
 
 div.sidenav {
@@ -187,7 +193,7 @@ div.sidenav {
     left: calc(100% - 400px);
     top: 120px;
     height: calc(100% - 200px);
-    width: 0;
+    width: 0px;
     z-index: 1;
     background-color: #111;
     overflow-x: hidden;

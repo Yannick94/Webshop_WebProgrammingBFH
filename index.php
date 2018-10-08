@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Webshop Blaser&amp;Stebler</title>
+ <link rel="shortcut icon" type="image/x-icon" href="res\pic\Logo.ico" />
 </head>
 <body>
 <div class="head">
@@ -19,6 +20,7 @@
 	</div>
 	<div class="Header">
 		<div class="Title">
+		<img class="Logo" src="\res\pic\Logo.png"></img>
 		<h1 class="TitleText">Hard und Software Shop</h1>
 		</div>
 		<div class="Account">
