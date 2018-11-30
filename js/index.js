@@ -6,7 +6,6 @@ $(document).ready(function() {
             var menu4 = false;
             var menu5 = false;
 
-            var cartOpen = false;
             var userOpen = false;
 
             $('.Navigation').on('mousedown touchstart', function() {
@@ -126,41 +125,15 @@ $(document).ready(function() {
                 });
             }
 
-            $('#ShoppingCart').click(function() {
-                    if (cartOpen) {
-                        document.getElementById("CartSlide").style.width = "0px";
-                        cartOpen = !cartOpen;
-                    } else {
-                        if (document.getElementById("UserSlide").style.width === "0px") {
-                            document.getElementById("CartSlide").style.width = "400px";
-                        } else {
-
-                            document.getElementById("UserSlide").style.width = "0px";
-                            setTimeout(function() {
-                                document.getElementById("CartSlide").style.width = "400px";
-                            }, 550);
-                        }
-                        cartOpen = !cartOpen;
-                        userOpen = false;
-                    }
-                })
-
                 $('#User').click(function() {
                     if (userOpen) {
                         document.getElementById("UserSlide").style.width = "0px";
                         userOpen = !userOpen;
                     } else {
-                        if (document.getElementById("CartSlide").style.width === "0px") {
+                        
                             document.getElementById("UserSlide").style.width = "400px";
-                        } else {
-
-                            document.getElementById("CartSlide").style.width = "0px";
-                            setTimeout(function() {
-                                document.getElementById("UserSlide").style.width = "400px";
-                            }, 550);
-                        }
+                        
                         userOpen = !userOpen;
-                        cartOpen = false;
                     }
                 })
             });
