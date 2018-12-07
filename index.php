@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	
+	include "text/text.php";
+	$_SESSION["lang"] = 'de';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +14,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Webshop Blaser&amp;Stebler</title>
+    <title><?php getContent('seiteTitel'); ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="res\pic\Logo.ico" />
 </head>
 
@@ -24,7 +31,7 @@
         <div class="Header">
             <div class="Title">
                 <img class="Logo" src="\res\pic\Logo.png"></img>
-                <h1 class="TitleText">Hard und Software Shop</h1>
+                <h1 class="TitleText"><?php getContent('titel'); ?></h1>
             </div>
             <div class="Account">
                 <a id="User" class="NavLink"><i class="fas fa-user-alt fa-3x"></i></a>
@@ -32,12 +39,13 @@
 			<div class="ShoppingCart">
 				<a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
 			</div>
+			<div class="Language">
+				
+			</div>
         </div>
     </div>
     <div class="body">
         <div class="MainContent">
-        </div>
-        <div id="UserSlide" class="sidenav">
         </div>
     </div>
     <div class="Footer">
@@ -48,7 +56,6 @@
 	if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
 </script>
     <script src="js/index.js"></script>
-	<script src="js/cart.js"></script>
 </body>
 
 </html>

@@ -187,18 +187,3 @@ img.Logo{
 	margin-left:225px;
 	float: left;
 }
-
-div.sidenav {
-    position: absolute;
-    left: calc(100% - 400px);
-    top: 120px;
-    height: calc(100% - 200px);
-    width: 0px;
-    z-index: 1;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-
