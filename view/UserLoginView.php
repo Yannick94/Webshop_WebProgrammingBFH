@@ -17,17 +17,26 @@ class UserLoginView{
         echo '<h2 class="SubTitel">';
         echo getContent('loginTitel');
         echo '</h2>';
-        echo '<label for="uname"><b>Username</b></label>';
-        echo '<input type="text" placeholder="Enter Username" name="uname" required>';
+        echo '<label for="uname"><b>'.getContent('Username').'</b></label>';
+        echo '<input type="text" placeholder="';
+        echo getContent('PlaceholderUsername');
+        echo '" name="uname" required>';
 
-        echo '<label for="psw"><b>Password</b></label>';
-        echo '<input type="password" placeholder="Enter Password" name="psw" required>';
+        echo '<label for="psw"><b>'.getContent('Password').'</b></label>';
+        echo '<input type="password" placeholder="';
+        echo getContent('PlaceholderPassword');
+        echo '" name="psw" required>';
 
         echo '<button class="submitLoginbtn" type="submit" name="submit">Login</button>';
         echo '</div>';
         echo '</form>';
         echo '<div class="LoginContent" style="background-color:#f1f1f1">';
-        echo '<button type="button" class="cancelLoginbtn">Cancel</button>';
+        echo '<button type="button" class="cancelLoginbtn">';
+        echo getContent('Cancel');
+        echo '</button>';
+        echo '<button type="button" class="registerLoginbtn">';
+        echo getContent('Register');
+        echo '</button>';
         echo '</div>';
     }
 }
