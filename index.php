@@ -1,8 +1,9 @@
 <?php
-	session_start();
-	
-	include "text/text.php";
-	$_SESSION["lang"] = 'de';
+    session_start();
+    include("text/text.php");
+    $_SESSION["lang"] = 'de';
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style\style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="style\cartStyle.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="style\login.css" media="screen" />
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
         </div>
         <div class="Header">
             <div class="Title">
-                <img class="Logo" src="\res\pic\Logo.png"></img>
+                <img class="Logo" src="\res\pic\Logo.png"/>
                 <h1 class="TitleText"><?php getContent('titel'); ?></h1>
             </div>
             <div class="Account">

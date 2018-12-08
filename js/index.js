@@ -126,14 +126,7 @@ $(document).ready(function() {
             }
 
                 $('#User').click(function() {
-                    if (userOpen) {
-                        document.getElementById("UserSlide").style.width = "0px";
-                        userOpen = !userOpen;
-                    } else {
-                        
-                            document.getElementById("UserSlide").style.width = "400px";
-                        
-                        userOpen = !userOpen;
-                    }
+                    $('.MainContent').html("");
+                    $('.MainContent').load('view/UserLoginView.php');
                 })
             });
