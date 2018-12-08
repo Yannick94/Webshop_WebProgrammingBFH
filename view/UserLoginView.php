@@ -11,6 +11,7 @@ class UserLoginView{
     }
 
     public function render(){
+        echo '<from method="post">';
         echo '<div class="LoginContent">';
         
         echo '<h2 class="SubTitel">';
@@ -22,8 +23,9 @@ class UserLoginView{
         echo '<label for="psw"><b>Password</b></label>';
         echo '<input type="password" placeholder="Enter Password" name="psw" required>';
 
-        echo '<button class="submitLoginbtn" type="submit">Login</button>';
+        echo '<button class="submitLoginbtn" type="submit" name="submit">Login</button>';
         echo '</div>';
+        echo '</form>';
         echo '<div class="LoginContent" style="background-color:#f1f1f1">';
         echo '<button type="button" class="cancelLoginbtn">Cancel</button>';
         echo '</div>';
@@ -33,5 +35,11 @@ class UserLoginView{
 $model = new UserLogin();
 $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
+if (isset($_POST['uname']))
+    $controller->{$_POST['uname']}();
+if (isset($_POST['psw']))
+    $controller->{$_POST['psw']}();
+if (isset($_POST['submit']))
+    $controller->{$_POST['submit']}();
 $view->render();
 ?>

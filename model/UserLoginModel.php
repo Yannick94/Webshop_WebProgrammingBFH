@@ -1,6 +1,7 @@
 <?php
 class UserLogin {
-    public $userName = "";
-    public $password = "";
+    public $UserName = "";
+    public $Password = "";
+    public $Salt = "";
 }
 ?>
