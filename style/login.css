@@ -24,13 +24,27 @@ input[type=text], input[type=password] {
     opacity: 0.8;
   }
 
-  .cancelbtn:hover {
+  .cancelLoginbtn:hover {
     opacity: 0.8;
   }
   
   /* Extra style for the cancel button (red) */
-  .cancelbtn {
+  .cancelLoginbtn {
     background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+  }
+
+  .registerLoginbtn:hover{
+    opacity: 0.8;
+  }
+
+  .registerLoginbtn {
+    background-color: darkgoldenrod;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -50,10 +64,20 @@ input[type=text], input[type=password] {
     float: right;
     padding-top: 16px;
   }
+
+  span.pswre {
+    float: right;
+    padding-top: 16px;
+  }
   
   /* Change styles for span and cancel button on extra small screens */
   @media screen and (max-width: 300px) {
     span.psw {
+      display: block;
+      float: none;
+    }
+
+    span.pswre{
       display: block;
       float: none;
     }

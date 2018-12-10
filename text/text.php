@@ -10,15 +10,15 @@ function t($key){
 	'loginTitel' => array(
 		'de' => "Benutzer Login",
 		'en' => "User Login"),
-	'Username' => array(
-		'de'=>'Benutzername',
-		'en' => 'Username'),
+	'EMail' => array(
+		'de'=>'E-Mail',
+		'en' => 'E-Mail'),
 	'Password' => array(
 		'de'=>'Passwort',
 		'en'=>'Password'),
-	'PlaceholderUsername' => array(
-		'de'=>'Benutzername eingeben',
-		'en'=>'Enter Username'),
+	'PlaceholderEMail' => array(
+		'de'=>'E-Mail eingeben',
+		'en'=>'Enter E-Mail'),
 	'PlaceholderPassword' => array(
 		'de'=>'Passwort eingeben',
 		'en'=>'Enter Password'),
@@ -27,7 +27,19 @@ function t($key){
 		'en'=>'Cancel'),
 	'Register'=>array(
 		'de'=>'Registrieren',
-		'en'=>'Register')
+		'en'=>'Register'),
+	'RepeatPassword' => array(
+		'de'=>'Passwort wiederholen',
+		'en'=>'Repeat Password'),
+	'PlaceholderRepeatPassword'=> array(
+		'de'=>'Passwort wiederholen',
+		'en'=>'Repeat Password'),
+	'registerTitel'=>array(
+		'de'=>'Registrieren',
+		'en'=>'Register'),
+	'EMailVorhanden'=>array(
+		'de'=>'EMail bereits vorhanden!',
+		'en'=>'Email already registered!')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

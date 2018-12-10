@@ -129,4 +129,13 @@ $(document).ready(function() {
                     $('.MainContent').html("");
                     $('.MainContent').load('view/UserLoginView.php');
                 })
+
+                $(".MainContent").on('click', '#registerLoginbtn', function(){
+                    $('.MainContent').html("");
+                    $('.MainContent').load('view/UserRegisterView.php');
+                })
+
+                $(".MainContent").on('click','.cancelLoginbtn', function(){
+                    $('.MainContent').html("");
+                })
             });

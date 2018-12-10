@@ -5,36 +5,36 @@ $mysqli = $db->getConnection();
 
 class UserLoginController {
 
-    private $userLogin;
+    private $user;
 
-    public function __construct(UserLogin $userLogin) {
-        $this->userLogin = $userLogin;
+    public function __construct(User $user) {
+        $this->user = $user;
     }
 
     public function uname(){
-        $this->userLogin->UserName = $_POST['uname'];
+        $this->user->EMail = $_POST['uname'];
     }
 
     public function psw(){
-        $this->userLogin->Password = $_POST['psw'];
+        $this->user->Password = $_POST['psw'];
     }
 
     public function submit(){
-        $name = strip_tags($this->userLogin->UserName);
-        $pw = strip_tags($this->userLogin->Password);
+        $mail = strip_tags($this->user->EMail);
+        $pw = strip_tags($this->user->Password);
 
-        $name = $db->escape_string($name);
+        $mail = $db->escape_string($mail);
         $pw = $db->escape_string($pw);
 
-        if(checkLogin($username, $password)){
-            $_SESSION['UserName'] = $name;
+        if(checkLogin($mail, $password)){
+            $_SESSION['E-Mail'] = $mail;
         }
     }
 
-    function checkLogin($username, $password){
+    function checkLogin($mail, $password){
         
-        $stmt = $mysqli->prepare("SELECT * FROM user WHERE UserName=?");
-        $stmt->bind_param('s',$username);
+        $stmt = $mysqli->prepare("SELECT * FROM user WHERE EMail =?");
+        $stmt->bind_param('s',$mail);
         $stmt->execute();
         $result = $stmt->get_result();
         if($result || $result->num_rows !== 1)
