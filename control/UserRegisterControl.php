@@ -1,38 +1,54 @@
 <?php
+
 include($_SERVER["DOCUMENT_ROOT"] . "/db/db.inc.php");
-$db = Database::getInstance();
-$mysqli = $db->getConnection();
 
 class UserRegisterController {
+
+    private $db;
+    private $mysqli;
 
     private $user;
 
     public function __construct(User $user) {
         $this->user = $user;
+        $this->db = Database::getInstance();
+        $this->mysqli = $this->db->getConnection();
     }
 
-    public function uname(){
-        $this->user->EMail = $_POST['uname'];
+    public function uname($email){
+        $this->user->EMail = $email;
     }
 
-    public function psw(){
-        $this->user->Password = $_POST['psw'];
+    public function psw($psw){
+        $this->user->Password = $psw;
     }
 
-    public function pswre(){
-        $this->user->PasswordRepeated = $_POST['pswre'];
+    public function pswre($pswre){
+        $this->user->PasswordRepeated = $pswre;
     }
 
-    public function submit(){
+    
+    function checkLogin(){
+        $stmt = $this->mysqli->prepare("SELECT * FROM user WHERE EMail =?");
+        $stmt->bind_param('s',$this->user->EMail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result || $result->num_rows !== 1)
+            return false;
+        $row = $result->fetch_assoc();
+        return password_verify($this->user->Password . $row["Salt"], $row["Password"]);
+    }
+
+    function submit(){
         if($this->user->Password === $this->user->PasswordRepeated){
 
-            $mail = strip_tags($this->user->EMail);
-            $pw = strip_tags($this->user->Password);
+            $this->user->EMail = strip_tags($this->user->EMail);
+            $this->user->Password = strip_tags($this->user->Password);
 
-            $mail = $db->escape_string($mail);
-            $pw = $db->escape_string($pw);
+            $this->user->EMail = $this->mysqli->real_escape_string($this->user->EMail);
+            $this->user->Password = $this->mysqli->real_escape_string($this->user->Password);
 
-            if(checkLogin($mail, $password)){
+            if($this->checkLogin()){
                 $_SESSION['E-Mail'] = $mail;
             }
             return true;
@@ -41,24 +57,11 @@ class UserRegisterController {
         }
     }
 
-    function checkLogin($mail, $password){
-        
-        $stmt = $mysqli->prepare("SELECT * FROM user WHERE EMail =?");
-        $stmt->bind_param('s',$mail);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if($result || $result->num_rows !== 1)
-            return false;
-        $row = $result->fetch_assoc();
-        return password_verify($password-$row["Salt"], $row["Password"]);
-    }
-
-    public static function FindUserByEMail($email){
+    public function FindUserByEMail($email){
         $email = strip_tags($email);
 
-        $email = $db->escape_string($email);
-
-        $stmt = $mysqli->prepare("SELECT * FROM user WHERE EMail =?");
+        $email = $this->mysqli->real_escape_string($email);
+        $stmt = $this->mysqli->prepare("SELECT * FROM user WHERE EMail =?");
         $stmt->bind_param('s',$email);
         $stmt->execute();
         $result = $stmt->get_result();

@@ -1,8 +1,7 @@
 <?php
-session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "/model/User.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/control/UserLoginControl.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/text/text.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 class UserLoginView{
     private $userLogin;
 
@@ -27,7 +26,9 @@ class UserLoginView{
         echo getContent('PlaceholderPassword');
         echo '" name="psw" required>';
 
-        echo '<button class="submitLoginbtn" type="submit" name="submit">Login</button>';
+        echo '<input class="submitLoginbtn" type="submit" name="submit" value="';
+        echo getContent('Login');
+        echo '"></input>';
         echo '</div>';
         echo '</form>';
         echo '<div class="LoginContent" style="background-color:#f1f1f1">';
@@ -45,10 +46,11 @@ $model = new User();
 $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
 if (isset($_POST['uname']))
-    $controller->{$_POST['uname']}();
+    $controller->uname($_POST['uname']);
 if (isset($_POST['psw']))
-    $controller->{$_POST['psw']}();
+    $controller->psw($_POST['psw']);
 if (isset($_POST['submit']))
-    $controller->{$_POST['submit']}();
+    $controller->submit();
 $view->render();
+include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>

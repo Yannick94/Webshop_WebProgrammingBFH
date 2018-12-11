@@ -11,12 +11,12 @@ class UserLoginController {
         $this->user = $user;
     }
 
-    public function uname(){
-        $this->user->EMail = $_POST['uname'];
+    public function uname($email){
+        $this->user->EMail = $email;
     }
 
-    public function psw(){
-        $this->user->Password = $_POST['psw'];
+    public function psw($pwd){
+        $this->user->Password = $pwd;
     }
 
     public function submit(){

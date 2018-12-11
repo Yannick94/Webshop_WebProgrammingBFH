@@ -126,16 +126,14 @@ $(document).ready(function() {
             }
 
                 $('#User').click(function() {
-                    $('.MainContent').html("");
-                    $('.MainContent').load('view/UserLoginView.php');
+                    window.location = "http://localhost/Login";
                 })
 
                 $(".MainContent").on('click', '#registerLoginbtn', function(){
-                    $('.MainContent').html("");
-                    $('.MainContent').load('view/UserRegisterView.php');
+                    window.location = "http://localhost/Register";
                 })
 
                 $(".MainContent").on('click','.cancelLoginbtn', function(){
-                    $('.MainContent').html("");
+                    window.location = "http://localhost";
                 })
             });
