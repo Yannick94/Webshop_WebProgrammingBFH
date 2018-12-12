@@ -21,17 +21,26 @@ class UserRegisterView{
         echo '<label for="uname"><b>'.getContent('EMail').'</b></label>';
         echo '<input type="text" placeholder="';
         echo getContent('PlaceholderEMail');
-        echo '" name="uname" required>';
+        echo '" name="uname" value="';
+        if(isset($_POST['uname']))
+            echo $_POST['uname'];
+        echo '" required />';
 
         echo '<label for="psw"><b>'.getContent('Password').'</b></label>';
         echo '<input type="password" placeholder="';
         echo getContent('PlaceholderPassword');
-        echo '" name="psw" required>';
+        echo '" name="psw" value="';
+        if(isset($_POST['psw']))
+            echo $_POST['psw'];
+        echo '" required />';
 
         echo '<label for="pswre"><b>'.getContent('RepeatPassword').'</b></label>';
         echo '<input type="password" placeholder="';
         echo getContent('PlaceholderRepeatPassword');
-        echo '" name="pswre" required>';
+        echo '" name="pswre" value="';
+        if(isset($_POST['pswre']))
+            echo $_POST['pswre'];
+        echo '" required />';
 
         echo '<input class="submitLoginbtn" type="submit" name="submit" value="';
         echo getContent('Register');
@@ -49,6 +58,7 @@ class UserRegisterView{
 $model = new User();
 $controller = new UserRegisterController($model);
 $view = new UserRegisterView($model);
+$view->render();
 if (isset($_POST['uname']))
     $controller->uname($_POST['uname']);
 if (isset($_POST['psw']))
@@ -65,6 +75,5 @@ if (isset($_POST['submit']))
     }else{
         $controller->submit();
     }
-$view->render();
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>

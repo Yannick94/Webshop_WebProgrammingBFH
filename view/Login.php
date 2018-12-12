@@ -10,7 +10,9 @@ class UserLoginView{
     }
 
     public function render(){
-        echo '<from method="post">';
+        echo '<form class = "form-signin" role = "form" action = "';
+        //echo htmlspecialchars($_SERVER['PHP_SELF']); 
+        echo '" method = "post">';
         echo '<div class="LoginContent">';
         
         echo '<h2 class="SubTitel">';
@@ -50,7 +52,12 @@ if (isset($_POST['uname']))
 if (isset($_POST['psw']))
     $controller->psw($_POST['psw']);
 if (isset($_POST['submit']))
-    $controller->submit();
+    if($controller->submit()){
+        echo "Login erfolgreich";
+        echo $_SESSION['E-Mail'];
+    }else{
+        echo "Error";
+    }
 $view->render();
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>

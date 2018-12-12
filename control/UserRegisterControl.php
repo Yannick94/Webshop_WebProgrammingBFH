@@ -28,15 +28,13 @@ class UserRegisterController {
     }
 
     
-    function checkLogin(){
-        $stmt = $this->mysqli->prepare("SELECT * FROM user WHERE EMail =?");
-        $stmt->bind_param('s',$this->user->EMail);
+    function insertUser(){
+        $hash = password_hash($this->user->Password,PASSWORD_BCRYPT);
+        $stmt = $this->mysqli->prepare('INSERT INTO User (EMail,Password) VALUES (?,?)');
+        $stmt->bind_param("ss",$this->user->EMail, $hash);
         $stmt->execute();
-        $result = $stmt->get_result();
-        if($result || $result->num_rows !== 1)
-            return false;
-        $row = $result->fetch_assoc();
-        return password_verify($this->user->Password . $row["Salt"], $row["Password"]);
+
+        $stmt->close();
     }
 
     function submit(){
@@ -48,25 +46,20 @@ class UserRegisterController {
             $this->user->EMail = $this->mysqli->real_escape_string($this->user->EMail);
             $this->user->Password = $this->mysqli->real_escape_string($this->user->Password);
 
-            if($this->checkLogin()){
-                $_SESSION['E-Mail'] = $mail;
-            }
-            return true;
-        }else{
-            return false;
+            $this->insertUser();
         }
     }
 
-    public function FindUserByEMail($email){
-        $email = strip_tags($email);
+    public function FindUserByEMail(){
+        $this->user->EMail = strip_tags($this->user->EMail);
 
-        $email = $this->mysqli->real_escape_string($email);
+        $this->user->EMail = $this->mysqli->real_escape_string($this->user->EMail);
         $stmt = $this->mysqli->prepare("SELECT * FROM user WHERE EMail =?");
-        $stmt->bind_param('s',$email);
+        $stmt->bind_param('s',$this->user->EMail);
         $stmt->execute();
         $result = $stmt->get_result();
-        if($result || $result->num_rows !== 1)
-            return false;
+        if(mysqli_num_rows($result)>0)
+            return true;
         return false;
     }
 }
