@@ -61,6 +61,7 @@ if(isset($_SESSION['E-Mail'])){
 $model = new User();
 $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
+$view->render();
 if (isset($_POST['uname']))
     $controller->uname($_POST['uname']);
 if (isset($_POST['psw']))
@@ -72,7 +73,6 @@ if (isset($_POST['submit']))
     }else{
         echo "Error";
     }
-$view->render();
 }
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>
