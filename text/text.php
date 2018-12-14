@@ -39,7 +39,10 @@ function t($key){
 		'en'=>'Repeat Password'),
 	'EMailVorhanden'=>array(
 		'de'=>'EMail bereits vorhanden!',
-		'en'=>'Email already registered!')
+		'en'=>'Email already registered!'),
+	'Logout'=>array(
+		'de'=>'Ausloggen',
+		'en'=>'Logout')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

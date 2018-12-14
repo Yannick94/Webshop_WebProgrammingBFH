@@ -31,7 +31,8 @@ class UserLoginController {
 
         if($this->checkLogin($mail, $pw)){
             $_SESSION['E-Mail'] = $mail;
-            return true;
+            header("Location: /");
+            exit();
         }
         return false;
     }

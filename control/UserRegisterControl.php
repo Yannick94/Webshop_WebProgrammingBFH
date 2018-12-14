@@ -47,6 +47,9 @@ class UserRegisterController {
             $this->user->Password = $this->mysqli->real_escape_string($this->user->Password);
 
             $this->insertUser();
+            $_SESSION['E-Mail'] = $this->user->EMail;
+            header("Location: /");
+            exit();
         }
     }
 

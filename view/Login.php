@@ -43,6 +43,20 @@ class UserLoginView{
         echo '</div>';
     }
 }
+if(isset($_POST['logout'])){
+    unset($_SESSION['E-Mail']);
+}
+
+if(isset($_SESSION['E-Mail'])){
+    echo '<h3>Bereits als ' . $_SESSION['E-Mail'] . ' eingeloggt!</h3>';
+    echo '<form class = "form-signin" role = "form" action = "';
+        //echo htmlspecialchars($_SERVER['PHP_SELF']); 
+        echo '" method = "post">';
+    echo '<button type="submit" id="logout" name="logout" class="logoutbtn">';
+    echo getContent('Logout');
+    echo '</button>';
+    echo '</form>';
+}else{
 
 $model = new User();
 $controller = new UserLoginController($model);
@@ -59,5 +73,6 @@ if (isset($_POST['submit']))
         echo "Error";
     }
 $view->render();
+}
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>
