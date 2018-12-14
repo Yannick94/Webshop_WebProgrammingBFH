@@ -1,16 +1,12 @@
 $(document).ready(function() {
 
-            var menu1 = false;
-            var menu2 = false;
-            var menu3 = false;
-            var menu4 = false;
-            var menu5 = false;
+            var menuOpen = false;
 
             var userOpen = false;
 
             $('.Navigation').on('mousedown touchstart', function() {
 
-                if (!menu1) $(this).find('.Hardware').css({
+                if (!menuOpen) $(this).find('.Hardware').css({
                     'background-color': 'gray',
                     'transform': 'translate(105px,30px)'
                 });
@@ -18,7 +14,7 @@ $(document).ready(function() {
                     'background-color': 'dimGray',
                     'transform': 'none'
                 });
-                if (!menu2) $(this).find('.Peripherie').css({
+                if (!menuOpen) $(this).find('.Peripherie').css({
                     'background-color': 'gray',
                     'transform': 'translate(75px,75px)'
                 });
@@ -26,7 +22,7 @@ $(document).ready(function() {
                     'background-color': 'darkGray',
                     'transform': 'none'
                 });
-                if (!menu3) $(this).find('.Software').css({
+                if (!menuOpen) $(this).find('.Software').css({
                     'background-color': 'gray',
                     'transform': 'translate(30px,105px)'
                 });
@@ -34,7 +30,7 @@ $(document).ready(function() {
                     'background-color': 'silver',
                     'transform': 'none'
                 });
-                if (!menu4) $(this).find('.Audio').css({
+                if (!menuOpen) $(this).find('.Audio').css({
                     'background-color': 'gray',
                     'transform': 'translate(-20px,125px)'
                 });
@@ -42,7 +38,7 @@ $(document).ready(function() {
                     'background-color': 'silver',
                     'transform': 'none'
                 });
-                if (!menu5) $(this).find('.Home').css({
+                if (!menuOpen) $(this).find('.Home').css({
                     'background-color': 'gray',
                     'transform': 'translate(125px,-20px)'
                 });
@@ -50,11 +46,7 @@ $(document).ready(function() {
                     'background-color': 'silver',
                     'transform': 'none'
                 });
-                menu1 = !menu1;
-                menu2 = !menu2;
-                menu3 = !menu3;
-                menu4 = !menu4;
-                menu5 = !menu5;
+                menuOpen = !menuOpen;
 
             });
 
@@ -125,15 +117,59 @@ $(document).ready(function() {
                 });
             }
 
-                $('#User').click(function() {
-                    window.location = "http://localhost/Login";
+            function closeMenu(){
+                $(this).find('.Hardware').css({
+                    'background-color': 'dimGray',
+                    'transform': 'none'});
+                $(this).find('.Peripherie').css({
+                        'background-color': 'darkGray',
+                        'transform': 'none'
+                });
+                $(this).find('.Software').css({
+                    'background-color': 'silver',
+                    'transform': 'none'
+                });
+                $(this).find('.Audio').css({
+                    'background-color': 'silver',
+                    'transform': 'none'
+                });
+                $(this).find('.Home').css({
+                    'background-color': 'silver',
+                    'transform': 'none'
+                });
+                menuOpen = false;
+            }
+
+                $('#User').on('mousedown touchstart', function() {
+                    if(menuOpen){
+                        closeMenu();
+                        setTimeout(function (){ 
+                            window.location = "http://localhost/Login";
+                        }, 1000);
+                    }else{
+                        window.location = "http://localhost/Login";
+                    }
                 })
 
-                $(".MainContent").on('click', '#registerLoginbtn', function(){
-                    window.location = "http://localhost/Register";
+                $(".MainContent").on('mousedown touchstart', '#registerLoginbtn', function(){
+                    if(menuOpen){
+                        closeMenu();
+                        setTimeout(function (){ 
+                            window.location = "http://localhost/Register";
+                        }, 1000);
+                    }else{
+                        window.location = "http://localhost/Register";
+                    }
                 })
 
-                $(".MainContent").on('click','.cancelLoginbtn', function(){
-                    window.location = "http://localhost";
+                $(".MainContent").on('mousedown touchstart','.cancelLoginbtn', function(){
+                    if(menuOpen){
+                        closeMenu();
+                        setTimeout(function (){ 
+                            window.location = "http://localhost";
+                        }, 1000);
+                    }else{
+                        window.location = "http://localhost";
+                    }
                 })
             });
