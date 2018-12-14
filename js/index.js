@@ -3,7 +3,6 @@ $(document).ready(function() {
             var menuOpen = false;
 
             var userOpen = false;
-
             $('.Navigation').on('mousedown touchstart', function() {
 
                 if (!menuOpen) $(this).find('.Hardware').css({
@@ -47,22 +46,36 @@ $(document).ready(function() {
                     'transform': 'none'
                 });
                 menuOpen = !menuOpen;
-
             });
 
-            $(document).ready(function() {
+            $('#NavHome').click(function(){
+                resetActive();
                 $('#NavHome').css({
                     'color': '#ff0000'
                 });
-            })
+                if(menuOpen){
+                    closeMenu();
+                    setTimeout(function (){ 
+                        window.location = "/";
+                    }, 1000);
+                }else{
+                    window.location = "/";
+                }
+            });
 
             $('#NavAudio').click(function() {
                 resetActive();
                 $('#NavAudio').css({
                     'color': '#ff0000'
                 });
-                $('.MainContent').html("");
-                $('.MainContent').load('subPages/product.php');
+                if(menuOpen){
+                    closeMenu();
+                    setTimeout(function (){ 
+                        window.location = "/Overview?cat=4";
+                    }, 1000);
+                }else{
+                    window.location = "/Overview?cat=4";
+                }
             });
 
             $('#NavSoftware').click(function() {
@@ -70,8 +83,14 @@ $(document).ready(function() {
                 $('#NavSoftware').css({
                     'color': '#ff0000'
                 });
-                $('.MainContent').html("");
-                $('.MainContent').load('subPages/product.php');
+                if(menuOpen){
+                    closeMenu();
+                    setTimeout(function (){ 
+                        window.location = "/Overview?cat=3";
+                    }, 1000);
+                }else{
+                    window.location = "/Overview?cat=3";
+                }
             });
 
             $('#NavPeripherie').click(function() {
@@ -79,8 +98,14 @@ $(document).ready(function() {
                 $('#NavPeripherie').css({
                     'color': '#ff0000'
                 });
-                $('.MainContent').html("");
-                $('.MainContent').load('subPages/product.php');
+                if(menuOpen){
+                    closeMenu();
+                    setTimeout(function (){ 
+                        window.location = "/Overview?cat=2";
+                    }, 1000);
+                }else{
+                    window.location = "/Overview?cat=2";
+                }
             });
 
             $('#NavHardware').click(function() {
@@ -88,8 +113,14 @@ $(document).ready(function() {
                 $('#NavHardware').css({
                     'color': '#ff0000'
                 });
-                $('.MainContent').html("");
-                $('.MainContent').load('subPages/product.php');
+                if(menuOpen){
+                    closeMenu();
+                    setTimeout(function (){ 
+                        window.location = "/Overview?cat=1";
+                    }, 1000);
+                }else{
+                    window.location = "/Overview?cat=1";
+                }
             });
 
             $('#NavHome').click(function() {
@@ -144,10 +175,10 @@ $(document).ready(function() {
                     if(menuOpen){
                         closeMenu();
                         setTimeout(function (){ 
-                            window.location = "http://localhost/Login";
+                            window.location = "/Login";
                         }, 1000);
                     }else{
-                        window.location = "http://localhost/Login";
+                        window.location = "/Login";
                     }
                 })
 
@@ -155,10 +186,10 @@ $(document).ready(function() {
                     if(menuOpen){
                         closeMenu();
                         setTimeout(function (){ 
-                            window.location = "http://localhost/Register";
+                            window.location = "/Register";
                         }, 1000);
                     }else{
-                        window.location = "http://localhost/Register";
+                        window.location = "/Register";
                     }
                 })
 
@@ -166,10 +197,10 @@ $(document).ready(function() {
                     if(menuOpen){
                         closeMenu();
                         setTimeout(function (){ 
-                            window.location = "http://localhost";
+                            window.location = "/";
                         }, 1000);
                     }else{
-                        window.location = "http://localhost";
+                        window.location = "/";
                     }
                 })
             });

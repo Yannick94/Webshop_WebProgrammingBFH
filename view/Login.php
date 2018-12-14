@@ -63,9 +63,9 @@ $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
 $view->render();
 if (isset($_POST['uname']))
-    $controller->uname($_POST['uname']);
+    $model->setEMail($_POST['uname']);
 if (isset($_POST['psw']))
-    $controller->psw($_POST['psw']);
+    $model->setPassword($_POST['psw']);
 if (isset($_POST['submit']))
     if($controller->submit()){
         echo "Login erfolgreich";

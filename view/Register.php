@@ -60,11 +60,11 @@ $controller = new UserRegisterController($model);
 $view = new UserRegisterView($model);
 $view->render();
 if (isset($_POST['uname']))
-    $controller->uname($_POST['uname']);
+    $model->setEMail($_POST['uname']);
 if (isset($_POST['psw']))
-    $controller->psw($_POST['psw']);
+    $model->setPassword($_POST['psw']);
 if(isset($_POST['pswre']))
-    $controller->pswre($_POST['pswre']);
+    $model->setPasswordRepeated($_POST['pswre']);
 if (isset($_POST['submit']))
     if($controller->FindUserByEMail($_POST['uname'])){
         echo '<div class="RegisterError';
