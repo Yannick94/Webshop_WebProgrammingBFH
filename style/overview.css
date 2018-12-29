@@ -1,0 +1,20 @@
+.productOverviewPic{
+    width: 10%;
+    height: 8%;
+}
+
+.ProductList{
+    overflow: auto;
+    max-height: 100vh;
+    border-collapse: collapse;
+}
+
+.clickForProduct{
+    border: 1pt;
+    border-color: black;
+}
+
+td{
+    border-bottom: 1pt;
+    border-color: black;
+}

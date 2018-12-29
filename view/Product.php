@@ -17,13 +17,13 @@ class ProductView{
 
 $prodId = -1;
 
-if(isset($_GET['prodId'])){
-    $prodId = $_GET['prodId'];
+if(isset($_GET['Id'])){
+    $prodId = $_GET['Id'];
 }
 
 $model = new Product();
 $controller = new ProductController($model);
-$view = new ProductView();
+$view = new ProductView($model);
 $view->render();
 
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");

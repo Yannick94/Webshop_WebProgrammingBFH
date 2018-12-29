@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="http:\\localhost\style\style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="http:\\localhost\style\login.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="http:\\localhost\style\overview.css" media="screen" />
 
 <head>
     <meta charset="UTF-8">
