@@ -42,7 +42,16 @@ function t($key){
 		'en'=>'Email already registered!'),
 	'Logout'=>array(
 		'de'=>'Ausloggen',
-		'en'=>'Logout')
+		'en'=>'Logout'),
+	'BeschreibungTitel'=>array(
+		'de'=>'Beschreibung',
+		'en'=>'Description'),
+	'InDenEinkaufswagen'=>array(
+		'de'=>'In den Einkaufswagen',
+		'en'=>'Add to Cart'),
+	'Preis'=>array(
+		'de'=>'Preis',
+		'en'=>'Price')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

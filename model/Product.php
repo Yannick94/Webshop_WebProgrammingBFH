@@ -30,7 +30,7 @@ class Product{
     }
 
     function getPrice(){
-        echo $this->Price;
+        echo number_format($this->Price,2,'.','');
     }
 
     function getPicturePath(){

@@ -11,6 +11,7 @@ class OverviewController{
         $this->product = $product;
         $this->db = Database::getInstance();
         $this->mysqli = $this->db->getConnection();
+        $this->mysqli->set_charset('utf-8');
     }
 
     public function GetProductByCat(int $cat){

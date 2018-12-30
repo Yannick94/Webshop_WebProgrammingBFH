@@ -2,7 +2,7 @@
     session_start();
     include("text/text.php");
     $_SESSION["lang"] = 'de';
-    
+    header('Content-Type: text/html; charset=utf-8');
 
 ?>
 
@@ -13,9 +13,9 @@
 <link rel="stylesheet" type="text/css" href="http:\\localhost\style\style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="http:\\localhost\style\login.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="http:\\localhost\style\overview.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="http:\\localhost\style\product.css" media="screen" />
 
 <head>
-    <meta charset="UTF-8">
     <title><?php getContent('seiteTitel'); ?></title>
     <link rel="shortcut icon" type="image/x-icon" href="http:\\localhost\res\pic\Logo.ico" />
 </head>

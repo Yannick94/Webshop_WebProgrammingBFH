@@ -11,7 +11,42 @@ class ProductView{
     }
 
     public function render(){
-
+        echo '<table class="ProductDetail">';
+        echo '<tr>';
+        echo '<td>';
+        echo '<img class="productOverviewPic" src="';
+        echo $this->product->getPicturePath();
+        echo '"/>';
+        echo '</td>';
+        echo '<td>';
+        echo '<h2>';
+        echo $this->product->getTitle($_SESSION["lang"]);
+        echo '</h2>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td colspan="2">';
+        echo '<h4>';
+        echo getContent("BeschreibungTitel");
+        echo '</h4>';
+        echo '<i>';
+        echo $this->product->getDescription($_SESSION["lang"]);
+        echo '</i>';
+        echo '</td>';
+        echo '</tr>';
+        echo '<tr>';
+        echo '<td>';
+        echo '<h4>';
+        echo getContent("Preis");
+        echo '</h4>';
+        echo '</td>';
+        echo '<td>';
+        echo $this->product->getPrice();
+        echo '</td>';
+        echo '</tr>';
+        echo '</table>';
+        echo '<button class="AddToCart">';
+        echo getContent("InDenEinkaufswagen");
+        echo '</button>';
     }
 }
 
@@ -23,6 +58,7 @@ if(isset($_GET['Id'])){
 
 $model = new Product();
 $controller = new ProductController($model);
+$model = $controller->getProductById($prodId);
 $view = new ProductView($model);
 $view->render();
 
