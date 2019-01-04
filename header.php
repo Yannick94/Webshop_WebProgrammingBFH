@@ -10,14 +10,14 @@
 <html>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="http:\\localhost\style\style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="http:\\localhost\style\login.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="http:\\localhost\style\overview.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="http:\\localhost\style\product.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\login.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\overview.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\product.css" media="screen" />
 
 <head>
     <title><?php getContent('seiteTitel'); ?></title>
-    <link rel="shortcut icon" type="image/x-icon" href="http:\\localhost\res\pic\Logo.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="\res\pic\Logo.ico" />
 </head>
 
 <body>

@@ -1,2 +1,2 @@
 <?php
-header('Location: http://localhost/',true,404);
+header('Location: /',true,404);
