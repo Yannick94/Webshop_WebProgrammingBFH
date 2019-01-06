@@ -65,5 +65,15 @@ class UserRegisterController {
             return true;
         return false;
     }
+
+    public function validateEmail($mail){
+        //$mail = test_input($mail);
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>

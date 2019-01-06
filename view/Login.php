@@ -63,7 +63,13 @@ $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
 $view->render();
 if (isset($_POST['uname']))
-    $model->setEMail($_POST['uname']);
+    if($controller->validateEmail($_POST['uname'])){
+        $model->setEMail($_POST['uname']);
+    }
+    else{
+        echo "Bitte korrekte Email angeben";
+    }
+    
 if (isset($_POST['psw']))
     $model->setPassword($_POST['psw']);
 if (isset($_POST['submit']))

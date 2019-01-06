@@ -48,5 +48,16 @@ class UserLoginController {
         $row = $result->fetch_assoc();
         return password_verify($password, $row["Password"]);
     }
+
+    public function validateEmail($mail){
+        //$mail = test_input($mail);
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
 }
 ?>
