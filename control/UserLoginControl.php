@@ -12,6 +12,7 @@ class UserLoginController {
         $this->user = $user;
         $this->db = Database::getInstance();
         $this->mysqli = $this->db->getConnection();
+        $this->mysqli->set_charset('utf-8');
     }
 
     public function uname($email){

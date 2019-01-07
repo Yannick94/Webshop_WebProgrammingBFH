@@ -203,4 +203,8 @@ $(document).ready(function() {
                         window.location = "/";
                     }
                 })
+
+                $(".clickForProduct").click(function() {
+                    window.location = "/Product?Id="+$(this).data("id");
+                });
             });

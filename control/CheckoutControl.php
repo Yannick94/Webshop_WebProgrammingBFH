@@ -1,7 +1,7 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/db/db.inc.php");
 
-class CartController{
+class CheckoutController{
     private $db;
     private $mysqli;
 
