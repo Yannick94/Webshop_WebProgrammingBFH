@@ -1,6 +1,12 @@
 <?php
     session_start();
     include("text/text.php");
+    if(isset($_POST["en"])){
+        $_SESSION["lang"] = $_POST["en"];
+    }
+    if(isset($_POST["de"])){
+        $_SESSION["lang"] = 'de';
+    }
     if(!isset($_SESSION["lang"])){
         $_SESSION["lang"] = 'de';
     }
@@ -41,12 +47,15 @@
                 <a id="User" class="NavLink"><i class="fas fa-user-alt fa-3x"></i></a>
             </div>
 			<div class="ShoppingCart">
-				<a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
-			</div>
-			<div class="Language">
-                <a id="Lang" href="index.php?lang=de"><i src="http:\\localhost\res\pic\ger.png"></i></a>
-				<a id="Lang" href="index.php?lang=en"><i src="http:\\localhost\res\pic\uk.png"></i></a>
-			</div>
+                <a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
+                <i>0 Artikel</i>
+            </div>
+        <div class="LanguageChooser">
+        <form method="post" action="">
+            <button type="submit" class="langButton" name="de" value="de"><img src="\res\pic\ger.png" height="25px" width="25px"/></button>
+			<button type="submit" class="langButton" name="en" value="en"><img src="\res\pic\uk.png" height="25px" width="25px"/></button>
+        </form>
+		</div>
         </div>
     </div>
     <div class="body">

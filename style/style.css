@@ -46,19 +46,27 @@ div.Title{
 }
 
 div.Account{
-	height:100%;
-	width: 10%;
+	height:80%;
+	width: 5%;
 	float: left;
 	position: relative;
 	top:25%;
 }
 
 div.ShoppingCart{
-	height:100%;
+	height:80%;
 	width: 10%;
 	float: left;
 	position: relative;
 	top:25%;
+}
+
+div.LanguageChooser{
+  height: 20%;
+  width: 5%;
+  float: left;
+  position: relative;
+  top: 0%;  
 }
 
 .Navigation {
@@ -186,4 +194,13 @@ h1.TitleText{
 img.Logo{
 	margin-left:225px;
 	float: left;
+}
+
+.langButton {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
