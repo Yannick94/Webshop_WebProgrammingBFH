@@ -1,7 +1,9 @@
 <?php
     session_start();
     include("text/text.php");
-    $_SESSION["lang"] = 'de';
+    if(!isset($_SESSION["lang"])){
+        $_SESSION["lang"] = 'de';
+    }
     header('Content-Type: text/html; charset=utf-8');
 
 ?>
@@ -42,7 +44,8 @@
 				<a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
 			</div>
 			<div class="Language">
-				
+                <a id="Lang" href="index.php?lang=de"><i src="http:\\localhost\res\pic\ger.png"></i></a>
+				<a id="Lang" href="index.php?lang=en"><i src="http:\\localhost\res\pic\uk.png"></i></a>
 			</div>
         </div>
     </div>
