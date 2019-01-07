@@ -12,6 +12,26 @@
     }
     header('Content-Type: text/html; charset=utf-8');
 
+    if(isset($_POST["add"])){
+        $id = $_POST["add"];
+        if(!isset($_SESSION["prod"])){
+            $_SESSION["prod"][0] = $id; 
+            $_SESSION["qty"][0] = 1;
+        }else{
+            $pos = array_search($id, $_SESSION["prod"]);
+            if($pos!== false){
+                $_SESSION["qty"][$pos] = $_SESSION["qty"][$pos] + 1;
+            }else{
+                $_SESSION["prod"][count($_SESSION["prod"])] = $id; 
+                $_SESSION["qty"][count($_SESSION["prod"])] = 1;  
+            }
+        }
+    }
+    $prodQty = 0;
+
+    if(isset($_SESSION["prod"])){
+        $prodQty = array_sum($_SESSION["qty"]);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +42,7 @@
 <link rel="stylesheet" type="text/css" href="\style\login.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="\style\overview.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="\style\product.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\cart.css" media="screen" />
 
 <head>
     <title><?php getContent('seiteTitel'); ?></title>
@@ -48,7 +69,10 @@
             </div>
 			<div class="ShoppingCart">
                 <a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
-                <i>0 Artikel</i>
+                <i><?php 
+                echo $prodQty;
+                echo ' ';
+                echo getContent('AnzArtikel');?></i>
             </div>
         <div class="LanguageChooser">
         <form method="post" action="">

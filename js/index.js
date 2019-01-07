@@ -182,6 +182,17 @@ $(document).ready(function() {
                     }
                 })
 
+                $('#Cart').on('mousedown touchstart', function(){
+                    if(menuOpen){
+                        closeMenu();
+                        setTimeout(function(){
+                            window.location = "/Cart";
+                        }, 1000);
+                    }else{
+                        window.location = "/Cart";
+                    }
+                })
+
                 $(".MainContent").on('mousedown touchstart', '#registerLoginbtn', function(){
                     if(menuOpen){
                         closeMenu();

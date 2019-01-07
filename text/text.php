@@ -51,7 +51,10 @@ function t($key){
 		'en'=>'Add to Cart'),
 	'Preis'=>array(
 		'de'=>'Preis',
-		'en'=>'Price')
+		'en'=>'Price'),
+	'AnzArtikel'=>array(
+		'de'=>'Anz Artikel',
+		'en'=>'Article Count')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

@@ -8,6 +8,7 @@ class Product{
     public $Price = 0.0;
     public $CategorieId = 0;
     public $PicturePath = "";
+    public $Quantity = 1;
 
     function getId(){
         echo $this->Id;
@@ -30,11 +31,20 @@ class Product{
     }
 
     function getPrice(){
-        echo number_format($this->Price,2,'.','');
+        $priceTotal = $this->Price * $this->Quantity;
+        echo number_format($priceTotal,2,'.','');
     }
 
     function getPicturePath(){
         echo $this->PicturePath;
+    }
+
+    function getQuantity(){
+        echo $this->Quantity;
+    }
+
+    function setQuantity(int $qty){
+        $this->Quantity = $qty;
     }
 
     function setId(int $id){

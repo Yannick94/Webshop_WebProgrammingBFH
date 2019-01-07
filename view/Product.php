@@ -44,9 +44,14 @@ class ProductView{
         echo '</td>';
         echo '</tr>';
         echo '</table>';
-        echo '<button class="AddToCart">';
+        echo '<form method="post" action="">';
+        echo '<input type="hidden" name="add" value="';
+        echo $this->product->getId();
+        echo '" />';
+        echo '<input type="submit" class="AddToCart" value="';
         echo getContent("InDenEinkaufswagen");
-        echo '</button>';
+        echo '" ></input>';
+        echo '</form>';
     }
 }
 
