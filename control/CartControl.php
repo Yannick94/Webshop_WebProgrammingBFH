@@ -15,6 +15,9 @@ class CartController
     
     public function GetProductFromSession(array $productIds, array $qty)
     {
+        if(count($productIds)<=0){
+            return array();
+        }
         $returnArray = array();
         $query       = "SELECT * FROM product WHERE   ";
         foreach ($productIds as $productId) {
@@ -23,6 +26,7 @@ class CartController
         $query   = substr($query, 0, -2);
         $result  = $this->mysqli->query($query);
         $counter = 0;
+        if($result->num_rows > 0){
         $result->data_seek(0);
         while ($row = $result->fetch_assoc()) {
             $prod = new Product();
@@ -40,5 +44,6 @@ class CartController
         }
         return $returnArray;
     }
+}
 }
 ?>
