@@ -10,7 +10,6 @@
     if(!isset($_SESSION["lang"])){
         $_SESSION["lang"] = 'de';
     }
-    header('Content-Type: text/html; charset=utf-8');
 
     if(isset($_POST["add"])){
         $id = $_POST["add"];
@@ -22,8 +21,9 @@
             if($pos!== false){
                 $_SESSION["qty"][$pos] = $_SESSION["qty"][$pos] + 1;
             }else{
-                $_SESSION["prod"][count($_SESSION["prod"])] = $id; 
-                $_SESSION["qty"][count($_SESSION["prod"])] = 1;  
+                $elements = count($_SESSION["prod"]);
+                $_SESSION["prod"][$elements] = $id; 
+                $_SESSION["qty"][$elements] = 1;  
             }
         }
     }

@@ -21,5 +21,7 @@ RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
 RewriteRule .* index.php [F]
 #
 ## End - Rewrite rules to block out some common exploits.
+ 
+ErrorDocument 404 /view/404.php
 
 RewriteRule ^([^\.]+)$ /view/$1.php [NC,L]
