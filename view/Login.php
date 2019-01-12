@@ -48,6 +48,7 @@ if(isset($_POST['logout'])){
 }
 
 if(isset($_SESSION['E-Mail'])){
+    print_r($_SESSION["id"]);
     echo '<h3>Bereits als ' . $_SESSION['E-Mail'] . ' eingeloggt!</h3>';
     echo '<form class = "form-signin" role = "form" action = "';
         //echo htmlspecialchars($_SERVER['PHP_SELF']); 
@@ -61,7 +62,6 @@ if(isset($_SESSION['E-Mail'])){
 $model = new User();
 $controller = new UserLoginController($model);
 $view = new UserLoginView($model);
-$view->render();
 if (isset($_POST['uname']))
     if($controller->validateEmail($_POST['uname'])){
         $model->setEMail($_POST['uname']);
@@ -77,8 +77,13 @@ if (isset($_POST['submit']))
         echo "Login erfolgreich";
         echo $_SESSION['E-Mail'];
     }else{
-        echo "Error";
+        echo '<h2>';
+        echo getContent("Loginerror");
+        echo '</h2>';
     }
+    
+$view->render();
 }
+
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>

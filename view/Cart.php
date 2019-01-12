@@ -79,7 +79,7 @@ class Cart{
         {
             return $i += $obj->Price*$obj->Quantity;
         });
-        echo '<div class="tr">';
+        echo '<div class="tr total">';
         echo '<i class="td productPic">Total</i>';
         echo '<i class="td title">&nbsp;</i>';
         echo '<i class="td add">&nbsp;</i>';

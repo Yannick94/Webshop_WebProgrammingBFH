@@ -22,6 +22,7 @@ class CheckoutController{
             $query = $query . "id=" . $productId . " OR ";
         }
         $query   = substr($query, 0, -3);
+        $query = $this->mysqli->escape_string($query);
         $result  = $this->mysqli->query($query);
         $counter = 0;
         if($result->num_rows > 0){
@@ -42,6 +43,24 @@ class CheckoutController{
         }
         return $returnArray;
     }
+}
+
+public function GetUserInformation($id){
+    $returnUser = new User();
+    $stmt = $this->mysqli->prepare("Select * FROM User WHERE ID=?");
+    $stmt->bind_param('s',$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if(mysqli_num_rows($result)==0)
+            return $returnUser;
+        $row = $result->fetch_assoc();
+    $returnUser->EMail = $row["EMail"];
+    $returnUser->Name = $row["Name"];
+    $returnUser->Street = $row["Street"];
+    $returnUser->ZIP = $row["ZIP"];
+    $returnUser->City = $row["City"];
+
+    return $returnUser;
 }
 }
 ?>

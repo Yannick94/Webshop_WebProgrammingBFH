@@ -87,7 +87,22 @@ function t($key){
 		'en'=>'City'),
 	'BestellungAbschliessen'=>array(
 		'de'=>'Bestellung Abschliessen',
-		'en'=>'Process Order')
+		'en'=>'Process Order'),
+	'Loginerror'=>array(
+		'de'=>'Username oder Passwort stimmt nicht!!',
+		'en'=>'Username or Password not correct!!'),
+	'PlaceholderName'=>array(
+		'de'=>'Name eingeben',
+		'en'=>'Enter Name'	),
+	'PlaceholderStreet'=>array(
+		'de'=>'Strasse eingeben',
+		'en'=>'Enter Street'),
+	'PlaceholderZip'=>array(
+		'de'=>'PLZ eingeben',
+		'en'=>'Enter Postal Code'),
+	'PlaceholderCity'=>array(
+		'de'=>'Wohnort eingeben',
+		'en'=>'Enter City')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

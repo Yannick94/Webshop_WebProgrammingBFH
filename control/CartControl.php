@@ -24,6 +24,7 @@ class CartController
             $query = $query . "id=" . $productId . " OR ";
         }
         $query   = substr($query, 0, -3);
+        $query = $this->mysqli->escape_string($query);
         $result  = $this->mysqli->query($query);
         $counter = 0;
         if($result->num_rows > 0){

@@ -42,6 +42,38 @@ class UserRegisterView{
             echo $_POST['pswre'];
         echo '" required />';
 
+        echo '<label for="name"><b>'.getContent('Name').'</b></label>';
+        echo '<input type="text" placeholder="';
+        echo getContent('PlaceholderName');
+        echo '" name="name" value="';
+        if(isset($_POST['name']))
+            echo $_POST['name'];
+        echo '" required />';
+
+        echo '<label for="street"><b>'.getContent('Street').'</b></label>';
+        echo '<input type="text" placeholder="';
+        echo getContent('PlaceholderStreet');
+        echo '" name="street" value="';
+        if(isset($_POST['street']))
+            echo $_POST['street'];
+        echo '" required />';
+
+        echo '<label for="zip"><b>'.getContent('PLZ').'</b></label>';
+        echo '<input type="text" placeholder="';
+        echo getContent('PlaceholderZip');
+        echo '" name="zip" value="';
+        if(isset($_POST['zip']))
+            echo $_POST['zip'];
+        echo '" required />';
+
+        echo '<label for="city"><b>'.getContent('Ort').'</b></label>';
+        echo '<input type="text" placeholder="';
+        echo getContent('PlaceholderCity');
+        echo '" name="city" value="';
+        if(isset($_POST['city']))
+            echo $_POST['city'];
+        echo '" required />';
+
         echo '<input class="submitLoginbtn" type="submit" name="submit" value="';
         echo getContent('Register');
         echo '"></input>';
@@ -70,6 +102,19 @@ if (isset($_POST['psw']))
     $model->setPassword($_POST['psw']);
 if(isset($_POST['pswre']))
     $model->setPasswordRepeated($_POST['pswre']);
+    
+if(isset($_POST['name']))
+$model->name($_POST['name']);
+
+if(isset($_POST['street']))
+    $model->street($_POST['street']);
+    
+if(isset($_POST['zip']))
+$model->zip($_POST['zip']);
+
+if(isset($_POST['city']))
+    $model->city($_POST['city']);
+
 if (isset($_POST['submit']))
     if($controller->FindUserByEMail($_POST['uname'])){
         echo '<div class="RegisterError';

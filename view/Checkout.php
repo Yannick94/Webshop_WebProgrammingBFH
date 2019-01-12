@@ -1,13 +1,19 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "/model/Product.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/model/User.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/control/CheckoutControl.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 
 class Checkout{
     private $productList;
+    private $userInformation;
 
     public function __construct(array $productList){
         $this->productList = $productList;
+    }
+
+    public function setUserInformationObject(User $user){
+        $this->userInformation = $user;
     }
 
     public function render(){
@@ -21,7 +27,9 @@ class Checkout{
         echo ' :</i>';
         echo '</td>';
         echo '<td>';
-        echo '<input type="text" name="name"/>';
+        echo '<input type="text" name="name" value="';
+        echo $this->userInformation->getname();
+        echo '" required/>';
         echo '</td>';
         echo '</tr>';
         echo '<tr>';
@@ -31,7 +39,9 @@ class Checkout{
         echo ' :</i>';
         echo '</td>';
         echo '<td>';
-        echo '<input type="text" name="street"/>';        
+        echo '<input type="text" name="street" value="';
+        echo $this->userInformation->getstreet();
+        echo '" required />';   
         echo '</td>';
         echo '</tr>';
         echo '<tr>';
@@ -41,7 +51,9 @@ class Checkout{
         echo ' :</i>';
         echo '</td>';
         echo '<td>';
-        echo '<input type="text" name="plz"/>';        
+        echo '<input type="text" name="plz" value="';
+        echo $this->userInformation->getzip();
+        echo '" required />';       
         echo '</td>';
         echo '</tr>';
         echo '<tr>';
@@ -51,7 +63,9 @@ class Checkout{
         echo ' :</i>';
         echo '</td>';
         echo '<td>';
-        echo '<input type="text" name="city"/>';        
+        echo '<input type="text" name="city" value="';
+        echo $this->userInformation->getcity();
+        echo '" required />';   
         echo '</td>';
         echo '</tr>';
         echo '</table>';
@@ -159,12 +173,23 @@ if(isset($_POST["delete"])){
 
 $model = new Product();
 $productList = array();
+$user = new User();
 $controller = new CheckoutController($model);
 if(isset($_SESSION["prod"])&&isset($_SESSION["qty"])){
 $productList = $controller->GetProductFromSession($_SESSION["prod"], $_SESSION["qty"]);
 }
+if(isset($_SESSION["id"])){
+    $user = $controller->GetUserInformation($_SESSION["id"]);
+}
 $view = new Checkout($productList);
+$view->setUserInformationObject($user);
 if(isset($_POST["finishOrder"])){
+    $id = -1;
+    if(isset($_SESSION["id"])){
+        $id = $_SESSION["id"];
+    }
+$controller->saveCheckout($_SESSION["prod"], $_SESSION["qty"],$id, $_POST);
+
 unset($_SESSION["prod"]);
 unset($_SESSION["qty"]);
 echo '<h2 class="finished">Bestellung aufgegeben!</h2>';

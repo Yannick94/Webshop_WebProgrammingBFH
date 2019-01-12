@@ -28,14 +28,32 @@ class UserRegisterController {
         $this->user->PasswordRepeated = $pswre;
     }
 
+    public function name($name){
+        $this->user->Name = $name;
+    }
+    
+    public function street($Street){
+        $this->user->Street = $Street;
+    }
+    
+    public function zip($ZIP){
+        $this->user->ZIP = $ZIP;
+    }
+    
+    public function city($City){
+        $this->user->City = $City;
+    }
+
     
     function insertUser(){
         $hash = password_hash($this->user->Password,PASSWORD_BCRYPT);
-        $stmt = $this->mysqli->prepare('INSERT INTO User (EMail,Password) VALUES (?,?)');
-        $stmt->bind_param("ss",$this->user->EMail, $hash);
+        $stmt = $this->mysqli->prepare('INSERT INTO User (EMail,Password, Name, Street, ZIP, City) VALUES (?,?,?,?,?,?)');
+        $stmt->bind_param("ssssss",$this->user->EMail, $hash, $this->user->Name, $this->user->Street,$this->user->ZIP,$this->user->City);
         $stmt->execute();
+        $id = $stmt->insert_id;
 
         $stmt->close();
+        return $id;
     }
 
     function submit(){
@@ -47,7 +65,8 @@ class UserRegisterController {
             $this->user->EMail = $this->mysqli->real_escape_string($this->user->EMail);
             $this->user->Password = $this->mysqli->real_escape_string($this->user->Password);
 
-            $this->insertUser();
+            $id = $this->insertUser();
+            $_SESSION['id'] = $id;
             $_SESSION['E-Mail'] = $this->user->EMail;
             header("Location: /");
             exit();
