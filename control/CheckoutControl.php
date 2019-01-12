@@ -17,11 +17,11 @@ class CheckoutController{
             return array();
         }
         $returnArray = array();
-        $query       = "SELECT * FROM product WHERE   ";
+        $query       = "SELECT * FROM product WHERE    ";
         foreach ($productIds as $productId) {
-            $query = $query . "id=" . $productId . " OR";
+            $query = $query . "id=" . $productId . " OR ";
         }
-        $query   = substr($query, 0, -2);
+        $query   = substr($query, 0, -3);
         $result  = $this->mysqli->query($query);
         $counter = 0;
         if($result->num_rows > 0){

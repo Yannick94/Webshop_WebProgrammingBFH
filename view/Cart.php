@@ -93,7 +93,16 @@ class Cart{
         echo '<i class="td delete">&nbsp;</i>';
         echo '</div>';
         echo '</div>';
+        echo '<div class="checkout">';
+        echo '<form method="post" action="">';
+        echo '<button class="nextStep checkoutBtn" type="submit" name="checkout"><span>Checkout </span></button>';
+        echo '</form>';
+        echo '</div>';
     }
+}
+
+if(isset($_POST["checkout"])){
+    header("Location: /Checkout");
 }
 
 if(isset($_POST["Add"])){

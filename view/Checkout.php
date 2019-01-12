@@ -124,9 +124,9 @@ class Checkout{
         echo '</div>';
         echo '<div class="ProcessCheckout">';
         echo '<form method="post" action="">';
-        echo '<button type="submit" name="finishOrder" class="ProcessCheckout"><i>';
+        echo '<button type="submit" name="finishOrder" class="nextStep checkoutBtn"><span>';
         echo getContent('BestellungAbschliessen');
-        echo '</i></button>';
+        echo '</span></button>';
         echo '</form>';
         echo '</div>';
     }
@@ -165,7 +165,10 @@ $productList = $controller->GetProductFromSession($_SESSION["prod"], $_SESSION["
 }
 $view = new Checkout($productList);
 if(isset($_POST["finishOrder"])){
-
+unset($_SESSION["prod"]);
+unset($_SESSION["qty"]);
+echo '<h2 class="finished">Bestellung aufgegeben!</h2>';
+header('Refresh: 2; Url=/');
 }else{
 $view->render();
 }

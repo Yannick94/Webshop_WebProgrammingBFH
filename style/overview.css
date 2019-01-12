@@ -19,3 +19,7 @@ td{
     border-bottom: 1pt;
     border-color: black;
 }
+
+.checkoutBtn{
+    width: 100%;
+}
