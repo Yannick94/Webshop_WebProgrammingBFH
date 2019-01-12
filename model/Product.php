@@ -14,6 +14,14 @@ class Product{
         echo $this->Id;
     }
 
+    function getIdint(){
+        return $this->Id;
+    }
+
+    function getQuantityint(){
+        return $this->Quantity;
+    }
+
     function getTitle(string $lang){
         if($lang=='de'){
         echo $this->TitleDe;

@@ -64,6 +64,12 @@ class UserRegisterController {
 
             $this->user->EMail = $this->mysqli->real_escape_string($this->user->EMail);
             $this->user->Password = $this->mysqli->real_escape_string($this->user->Password);
+            
+            $this->user->Name = $this->mysqli->real_escape_string($this->user->Name);
+            $this->user->Street = $this->mysqli->real_escape_string($this->user->Street);
+            
+            $this->user->ZIP = $this->mysqli->real_escape_string($this->user->ZIP);
+            $this->user->City = $this->mysqli->real_escape_string($this->user->City);
 
             $id = $this->insertUser();
             $_SESSION['id'] = $id;

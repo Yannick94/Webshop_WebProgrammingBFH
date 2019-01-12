@@ -17,8 +17,8 @@ class Checkout{
     }
 
     public function render(){
-        echo '<div class="AddressForm">';
         echo '<form method="post" action="">';
+        echo '<div class="AddressForm">';
         echo '<table>';
         echo '<tr>';
         echo '<td>';
@@ -69,7 +69,6 @@ class Checkout{
         echo '</td>';
         echo '</tr>';
         echo '</table>';
-        echo '</form>';
         echo '</div>';
 
         echo '<div class="ProductTable">';
@@ -91,7 +90,7 @@ class Checkout{
             echo '</i>';
             echo '</div>';
         foreach($this->productList as $product){
-            echo '<form method="post" action="" class="tr">';
+            echo '<div class="tr">';
             echo '<input type="hidden" name="id" value="';
             echo $product->getId();
             echo '"/>';
@@ -114,7 +113,7 @@ class Checkout{
             echo '<i class="far fa-times-circle fa-3x"></i>';
             echo '</button>';
             echo '</span>';
-            echo '</form>';
+            echo '</div>';
         }
         $qty = array_reduce($this->productList, function($i, $obj)
         {
@@ -137,38 +136,12 @@ class Checkout{
         echo '</div>';
         echo '</div>';
         echo '<div class="ProcessCheckout">';
-        echo '<form method="post" action="">';
         echo '<button type="submit" name="finishOrder" class="nextStep checkoutBtn"><span>';
         echo getContent('BestellungAbschliessen');
         echo '</span></button>';
-        echo '</form>';
         echo '</div>';
+        echo '</form>';
     }
-}
-
-if(isset($_POST["delete"])){
-    $pos = array_search($_POST["id"], $_SESSION["prod"]);
-    $prodarray = array();
-    $qtyarray = array();
-    $counter = 0;
-    foreach($_SESSION["prod"] as $prod){
-        if($counter !== $pos){
-            array_push($prodarray,$prod);
-        }
-        $counter = $counter + 1;
-    }
-    $counter = 0;
-    foreach($_SESSION["qty"] as $qty){
-        if($counter !== $pos){
-            array_push($qtyarray, $qty);
-        }
-        $counter = $counter + 1;
-    }
-    unset($_SESSION["prod"]);
-    unset($_SESSION["qty"]);
-    $_SESSION["prod"] = $prodarray;
-    $_SESSION["qty"] = $qtyarray;
-    header("Refresh: 0");
 }
 
 $model = new Product();
@@ -188,7 +161,7 @@ if(isset($_POST["finishOrder"])){
     if(isset($_SESSION["id"])){
         $id = $_SESSION["id"];
     }
-$controller->saveCheckout($_SESSION["prod"], $_SESSION["qty"],$id, $_POST);
+$controller->saveCheckout($productList,$id, $_POST["name"], $_POST["street"], $_POST["plz"], $_POST["city"]);
 
 unset($_SESSION["prod"]);
 unset($_SESSION["qty"]);

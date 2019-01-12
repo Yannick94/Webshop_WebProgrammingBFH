@@ -48,7 +48,6 @@ if(isset($_POST['logout'])){
 }
 
 if(isset($_SESSION['E-Mail'])){
-    print_r($_SESSION["id"]);
     echo '<h3>Bereits als ' . $_SESSION['E-Mail'] . ' eingeloggt!</h3>';
     echo '<form class = "form-signin" role = "form" action = "';
         //echo htmlspecialchars($_SERVER['PHP_SELF']); 
