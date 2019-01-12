@@ -147,7 +147,7 @@ class Checkout{
 $model = new Product();
 $productList = array();
 $user = new User();
-$controller = new CheckoutController($model);
+$controller = new CheckoutController($user);
 if(isset($_SESSION["prod"])&&isset($_SESSION["qty"])){
 $productList = $controller->GetProductFromSession($_SESSION["prod"], $_SESSION["qty"]);
 }

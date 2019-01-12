@@ -8,9 +8,18 @@ class User {
     public $Street = "";
     public $ZIP = "";
     public $City = "";
+    public $Id = -1;
 
     function getEMail(){
         echo $this->EMail;
+    }
+
+    function getIdInt(){
+        return $this->Id;
+    }
+
+    function getId(){
+        echo $this->Id;
     }
 
     function getPassword(){
@@ -63,6 +72,10 @@ class User {
 
     function getcity(){
         echo $this->City;
+    }
+
+    function id($id){
+        $this->Id = $id;
     }
 }
 ?>

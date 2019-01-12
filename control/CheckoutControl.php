@@ -5,7 +5,8 @@ class CheckoutController{
     private $db;
     private $mysqli;
 
-    public function __construct() {
+    public function __construct(User $user) {
+        $this->user = $user;
         $this->db = Database::getInstance();
         $this->mysqli = $this->db->getConnection();
         $this->mysqli->set_charset('utf-8');
@@ -72,19 +73,20 @@ public function saveCheckout(array $prod,$id, $name, $street, $zip, $city){
     {
         return $i += $obj->Quantity;
     });
-    $name = $this->mysqli->escape_string($name);
-    $street = $this->mysqli->escape_string($street);
-    $zip = $this->mysqli->escape_string($zip);
-    $city = $this->mysqli->escape_string($city);
+    $this->user->id($this->mysqli->escape_string($id));
+    $this->user->name($this->mysqli->escape_string($name));
+    $this->user->street($this->mysqli->escape_string($street));
+    $this->user->zip($this->mysqli->escape_string($zip));
+    $this->user->city($this->mysqli->escape_string($city));
 
-    $query = "INSERT INTO `orderheader` ( `UserId`, `AnzArtikel`, `TotalBetrag`, `Name`, `Street`, `ZIP`, `City`) VALUES (?,?,?,?,?,?,?)";
+    $query = "INSERT INTO orderheader ( UserId, AnzArtikel, TotalBetrag, Name, Street, ZIP, City) VALUES (?,?,?,?,?,?,?)";
     $stmt = $this->mysqli->prepare('INSERT INTO `orderheader`(`UserId`, `AnzArtikel`, `TotalBetrag`, `Name`, `Street`, `ZIP`, `City`) VALUES (?,?,?,?,?,?,?)');
-    $stmt = $stmt->bind_param("iidssss",$id,$qty, $sum,$name,$street,$zip,$city);
+    $stmt = $stmt->bind_param("iisssss",$this->user->Id,$qty, $sum,$this->user->Name,$this->user->Street, $this->user->ZIP, $this->user->City);
     $stmt->execute();
     $headerId = $stmt->insert_id;
         foreach($this->productList as $product){
             $stmt = $this->mysqli->prepare("INSERT INTO Orderline (HeaderId, ProductId, Units, UnitPrice) VALUES (?,?,?,?)");
-            $stmt = $stmt->bind_param("ssss",$headerId,$product->getIdInt(),$product->getQuantityInt(), $product->getPrice());
+            $stmt = $stmt->bind_param("ssss",$headerId,$product->Id,$product->getQuantityInt(), $product->getPrice());
             $stmt->execute();
         }
 }
