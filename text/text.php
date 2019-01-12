@@ -54,7 +54,25 @@ function t($key){
 		'en'=>'Price'),
 	'AnzArtikel'=>array(
 		'de'=>'Anz Artikel',
-		'en'=>'Article Count')
+		'en'=>'Article Count'),
+	'Picture'=>array(
+		'de'=>'Bild',
+		'en'=>'Picture'),
+	'Product'=>array(
+		'de'=>'Produkt',
+		'en'=>'Product'),
+	'Add'=>array(
+		'de'=>'Plus',
+		'en'=>'Add'),
+	'Qunatity'=>array(
+		'de'=>'Stück',
+		'en'=>'Qunatity'),
+	'Sub'=>array(
+		'de'=>'Minus',
+		'en'=>'Substract'),
+	'Delete'=>array(
+		'de'=>'Entfernen',
+		'en'=>'Delete')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

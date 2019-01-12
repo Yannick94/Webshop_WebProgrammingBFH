@@ -1,0 +1,52 @@
+DIV.ProductTable{
+    display:table;
+    width:100%;
+    table-layout: auto;
+}
+
+DIV.th{
+    display:table-row;
+    align-content: center;
+}
+
+FORM.tr{
+    display: table-row;
+    align-content: center;
+}
+
+DIV.tr{
+    display:table-row;
+    border-top: 1pt solid black;
+}
+
+SPAN.td, i.td{
+    display:table-cell;
+    align-content: center;
+}
+
+SPAN.productPic{
+    width: 20%;
+}
+
+i.title{
+    width: 60%;
+}
+
+SPAN.add, SPAN.sub, SPAN.delete{
+    width:3%;
+}
+
+i.quantity, {
+    width: 3%;
+}
+
+i.price{
+    width: 10%;
+}
+
+.productCartPic{
+    width: 30%;
+    height: 5%;
+}
+
+

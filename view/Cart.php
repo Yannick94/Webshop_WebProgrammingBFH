@@ -11,57 +11,93 @@ class Cart{
     }
 
     public function render(){
-        echo '<div class="ProductList">';
-        echo '<table>';
+        echo '<div class="ProductTable">';
+        echo '<div class="th">';
+            echo '<i class="td">';
+            echo getContent('Picture');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Product');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Add');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Qunatity');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Sub');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Preis');
+            echo '</i>';
+            echo '<i class="td">';
+            echo getContent('Delete');
+            echo '</i>';
+            echo '</div>';
         foreach($this->productList as $product){
-            echo '<form method="post" action="">';
+            echo '<form method="post" action="" class="tr">';
             echo '<input type="hidden" name="id" value="';
             echo $product->getId();
             echo '"/>';
-            echo '<tr>';
-            echo '<td>';
-            echo '<img class="productOverviewPic" src="';
+            echo '<span class="td productPic">';
+            echo '<img class="productCartPic" src="';
             echo $product->getPicturePath();
             echo '"/>';
-            echo '</td>';
-            echo '<td>';
-            echo '<i>';
+            echo '</span>';
+            echo '<i class="td title">';
             echo $product->getTitle($_SESSION["lang"]);
             echo '</i>';
-            echo '</td>';
-            echo '<td>';
-            echo '<button class="langButton" type="submit" name="Add">';
+            echo '<span class="td add">';
+            echo '<button class="langButton" type="submit" name="Add" form="form';
+            echo $product->getId();
+            echo '">';
             echo '<i class="fas fa-plus-circle fa-3x"></i>';
             echo '</button>';
-            echo '</td>';
-            echo '<td>';
-            echo '<i>';
+            echo '</span>';
+            echo '<i class="td quantity">';
             echo $product->getQuantity();
             echo '</i>';
-            echo '</td>';
-            echo '<td>';
-            echo '<button class="langButton" type="submit" name="Sub">';
+            echo '<span class="td sub">';
+            echo '<button class="langButton" type="submit" name="Sub" form="form';
+            echo $product->getId(); 
+            echo '">';
             echo '<i class="fas fa-minus-circle fa-3x"></i>';
             echo '</button>';
-            echo '</td>';
-            echo '<td>';
-            echo '<i>';
+            echo '</span>';
+            echo '<i class="td price">';
             echo $product->getPrice();
             echo '</i>';
-            echo '</td>';
-            echo '<td>';
-            echo '<button class="langButton" type="submit" name="delete">';
+            echo '<span class="td delete">';
+            echo '<button class="langButton" type="submit" name="delete" form="form';
+            echo $product->getId();
+            echo '">';
             echo '<i class="far fa-times-circle fa-3x"></i>';
             echo '</button>';
-            echo '</td>';
-            echo '</tr>';
-            echo '<tr>';
-            echo '<Button type="submit" name="Checkout"/>';
-            echo '</tr>'
+            echo '</span>';
             echo '</form>';
-
         }
-        echo '</table>';
+        $qty = array_reduce($this->productList, function($i, $obj)
+        {
+            return $i += $obj->Quantity;
+        });
+        $sum = array_reduce($this->productList, function($i, $obj)
+        {
+            return $i += $obj->Price*$obj->Quantity;
+        });
+        echo '<div class="tr">';
+        echo '<i class="td productPic">Total</i>';
+        echo '<i class="td title">&nbsp;</i>';
+        echo '<i class="td add">&nbsp;</i>';
+        echo '<i class="td quantity">';
+        echo $qty;
+        echo '</i>';
+        echo '<i class="td sub">&nbsp;</i>';
+        echo '<i class="td price">';
+        echo number_format($sum,2,'.','');;
+        echo '</i>';
+        echo '<i class="td delete">&nbsp;</i>';
+        echo '</div>';
         echo '</div>';
     }
 }
