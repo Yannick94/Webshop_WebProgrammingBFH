@@ -79,14 +79,13 @@ public function saveCheckout(array $prod,$id, $name, $street, $zip, $city){
     $this->user->zip($this->mysqli->escape_string($zip));
     $this->user->city($this->mysqli->escape_string($city));
 
-    $query = "INSERT INTO orderheader ( UserId, AnzArtikel, TotalBetrag, Name, Street, ZIP, City) VALUES (?,?,?,?,?,?,?)";
-    $stmt = $this->mysqli->prepare('INSERT INTO `orderheader`(`UserId`, `AnzArtikel`, `TotalBetrag`, `Name`, `Street`, `ZIP`, `City`) VALUES (?,?,?,?,?,?,?)');
-    $stmt = $stmt->bind_param("iisssss",$this->user->Id,$qty, $sum,$this->user->Name,$this->user->Street, $this->user->ZIP, $this->user->City);
+    $stmt = $this->mysqli->prepare('INSERT INTO orderheader ( UserId, AnzArtikel, TotalBetrag, Name, Street, ZIP, City) VALUES (?,?,?,?,?,?,?)');
+    $stmt->bind_param("iidssss",$id,$qty, $sum,$name,$street,$zip, $city);
     $stmt->execute();
     $headerId = $stmt->insert_id;
-        foreach($this->productList as $product){
+        foreach($prod as $product){
             $stmt = $this->mysqli->prepare("INSERT INTO Orderline (HeaderId, ProductId, Units, UnitPrice) VALUES (?,?,?,?)");
-            $stmt = $stmt->bind_param("ssss",$headerId,$product->Id,$product->getQuantityInt(), $product->getPrice());
+            $stmt->bind_param("iiid",$headerId,$product->Id,$product->Quantity, $product->Price);
             $stmt->execute();
         }
 }
