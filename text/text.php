@@ -72,7 +72,22 @@ function t($key){
 		'en'=>'Substract'),
 	'Delete'=>array(
 		'de'=>'Entfernen',
-		'en'=>'Delete')
+		'en'=>'Delete'),
+	'Name'=>array(
+		'de'=>'Name',
+		'en'=>'Name'),
+	'Street'=>array(
+		'de'=>'Strasse',
+		'en'=>'Street'),
+	'PLZ'=>array(
+		'de'=>'PLZ',
+		'en'=>'ZIP'),
+	'Ort'=>array(
+		'de'=>'Ort',
+		'en'=>'City'),
+	'BestellungAbschliessen'=>array(
+		'de'=>'Bestellung Abschliessen',
+		'en'=>'Process Order')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }

@@ -49,9 +49,7 @@ class Cart{
             echo $product->getTitle($_SESSION["lang"]);
             echo '</i>';
             echo '<span class="td add">';
-            echo '<button class="langButton" type="submit" name="Add" form="form';
-            echo $product->getId();
-            echo '">';
+            echo '<button class="langButton" type="submit" name="Add">';
             echo '<i class="fas fa-plus-circle fa-3x"></i>';
             echo '</button>';
             echo '</span>';
@@ -59,9 +57,7 @@ class Cart{
             echo $product->getQuantity();
             echo '</i>';
             echo '<span class="td sub">';
-            echo '<button class="langButton" type="submit" name="Sub" form="form';
-            echo $product->getId(); 
-            echo '">';
+            echo '<button class="langButton" type="submit" name="Sub">';
             echo '<i class="fas fa-minus-circle fa-3x"></i>';
             echo '</button>';
             echo '</span>';
@@ -69,9 +65,7 @@ class Cart{
             echo $product->getPrice();
             echo '</i>';
             echo '<span class="td delete">';
-            echo '<button class="langButton" type="submit" name="delete" form="form';
-            echo $product->getId();
-            echo '">';
+            echo '<button class="langButton" type="submit" name="delete">';
             echo '<i class="far fa-times-circle fa-3x"></i>';
             echo '</button>';
             echo '</span>';
