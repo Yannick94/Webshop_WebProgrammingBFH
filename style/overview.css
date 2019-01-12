@@ -4,9 +4,10 @@
 }
 
 .ProductList{
-    overflow: auto;
-    max-height: 100vh;
+    overflow-y: auto;
     border-collapse: collapse;
+    top: 200px;
+    bottom: 100px;
 }
 
 .clickForProduct{
