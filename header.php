@@ -65,10 +65,6 @@ if(isset($_SESSION["prod"])){
 			<button type="submit" class="langButton" name="en" value="en"><img src="\res\pic\uk.png" height="25px" width="25px"/></button>
         </form>
 		</div>
-        <form>
-            <input type="text" size="30" onkeyup="showResult(this.value)">
-            <div id="livesearch"></div>
-        </form>
         </div>
     </div>
     <div class="body">
