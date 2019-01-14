@@ -102,7 +102,10 @@ function t($key){
 		'en'=>'Enter Postal Code'),
 	'PlaceholderCity'=>array(
 		'de'=>'Wohnort eingeben',
-		'en'=>'Enter City')
+		'en'=>'Enter City'),
+	'Footer' => array(
+		'de'=>'Erstellt von Y.Stebler und S.Blaser',
+		'en'=>'Created by Y.Stebler and S.Blaser')
 	);
 	return $texts[$key][$_SESSION["lang"]] ?? "[$key]";
 }
