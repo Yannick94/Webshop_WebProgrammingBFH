@@ -17,7 +17,6 @@ if(isset($_SESSION["prod"])){
     $prodQty = array_sum($_SESSION["qty"]);
 }
 ?>
-
     <!DOCTYPE html>
     <html>
 

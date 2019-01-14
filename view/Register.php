@@ -90,7 +90,6 @@ class UserRegisterView{
 $model = new User();
 $controller = new UserRegisterController($model);
 $view = new UserRegisterView($model);
-$view->render();
 if (isset($_POST['uname']))
     if($controller->validateEmail($_POST['uname'])){
         $model->setEMail($_POST['uname']);
@@ -125,5 +124,7 @@ if (isset($_POST['submit']))
     }else{
         $controller->submit();
     }
+
+    $view->render();
 include($_SERVER["DOCUMENT_ROOT"] . "/footer.php");
 ?>
