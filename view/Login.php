@@ -45,6 +45,8 @@ class UserLoginView{
 }
 if(isset($_POST['logout'])){
     unset($_SESSION['E-Mail']);
+    unset($_SESSION['id']);
+    unset($_SESSION['IsAdmin']);
 }
 
 if(isset($_SESSION['E-Mail'])){

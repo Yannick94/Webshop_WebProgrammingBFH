@@ -29,12 +29,13 @@ class UserLoginController {
 
         $mail = $this->mysqli->escape_string($mail);
         $pw = $this->mysqli->escape_string($pw);
-        list($result,$id) = $this->checkLogin($mail,$pw);
+        list($result,$id, $isAdmin) = $this->checkLogin($mail,$pw);
 
         print_r($id);
         if($result){
             $_SESSION['E-Mail'] = $mail;
             $_SESSION['id'] = $id;
+            $_SESSION['IsAdmin'] = $isAdmin;
             header("Location: /");
             exit();
         }
@@ -50,7 +51,7 @@ class UserLoginController {
         if(mysqli_num_rows($result)==0)
             return false;
         $row = $result->fetch_assoc();
-        return array(password_verify($password, $row["Password"]), $row["Id"]);
+        return array(password_verify($password, $row["Password"]), $row["Id"], $row["IsAdmin"]);
     }
 
     public function validateEmail($mail){

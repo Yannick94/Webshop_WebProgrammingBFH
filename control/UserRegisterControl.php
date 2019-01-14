@@ -74,6 +74,7 @@ class UserRegisterController {
             $id = $this->insertUser();
             $_SESSION['id'] = $id;
             $_SESSION['E-Mail'] = $this->user->EMail;
+            $_SESSION['IsAdmin'] = 0;
             header("Location: /");
             exit();
         }

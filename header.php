@@ -11,27 +11,11 @@
         $_SESSION["lang"] = 'de';
     }
 
-    if(isset($_POST["add"])){
-        $id = $_POST["add"];
-        if(!isset($_SESSION["prod"])){
-            $_SESSION["prod"][0] = $id; 
-            $_SESSION["qty"][0] = 1;
-        }else{
-            $pos = array_search($id, $_SESSION["prod"]);
-            if($pos!== false){
-                $_SESSION["qty"][$pos] = $_SESSION["qty"][$pos] + 1;
-            }else{
-                $elements = count($_SESSION["prod"]);
-                $_SESSION["prod"][$elements] = $id; 
-                $_SESSION["qty"][$elements] = 1;  
-            }
-        }
-    }
     $prodQty = 0;
 
-    if(isset($_SESSION["prod"])){
-        $prodQty = array_sum($_SESSION["qty"]);
-    }
+if(isset($_SESSION["prod"])){
+    $prodQty = array_sum($_SESSION["qty"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,10 +53,11 @@
             </div>
 			<div class="ShoppingCart">
                 <a id="Cart" class="NavLink"><i class="fas fa-shopping-cart fa-3x"></i></a>
-                <i><?php 
+                <span id="anzArtikel" ><?php 
                 echo $prodQty;
+                echo '</span><span>';
                 echo ' ';
-                echo getContent('AnzArtikel');?></i>
+                echo getContent('AnzArtikel');?></span>
             </div>
         <div class="LanguageChooser">
         <form method="post" action="">

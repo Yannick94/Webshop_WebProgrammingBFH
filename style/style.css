@@ -18,7 +18,7 @@ div.body {
 
 div.Header {
 	width:100%;
-	height:200px;
+	height:300px;
 	float: right;
 	display: inline;
 }
@@ -244,7 +244,7 @@ img.Logo{
   right: 0;
 }
 
-div.HardwareMain div.SoftwareMain div.PeripherieMain div.AudioMain{
+div.HardwareMain div.SoftwareMain div.PeripherieMain div.AudioMain div.AdminMain{
   height: 20vh;
   display:block;
 }
@@ -265,6 +265,11 @@ div.SoftwareMain .MainPageNav{
 }
 
 div.AudioMain .MainPageNav{
+  width: 100%;
+  height: 100%;
+}
+
+div.AdminMain .MainPageNav{
   width: 100%;
   height: 100%;
 }
