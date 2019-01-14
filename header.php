@@ -32,9 +32,24 @@
     if(isset($_SESSION["prod"])){
         $prodQty = array_sum($_SESSION["qty"]);
     }
+?>
 
-    // livesearch function
-    function showResult(str) {
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="\style\style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\login.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\overview.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\product.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="\style\cart.css" media="screen" />
+
+<head>
+    <title><?php getContent('seiteTitel'); ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="\res\pic\Logo.ico" />
+    <script>
+     // livesearch function
+     function showResult(str) {
         if (str.length==0) { 
           document.getElementById("livesearch").innerHTML="";
           document.getElementById("livesearch").style.border="0px";
@@ -55,21 +70,7 @@
         xmlhttp.open("GET","livesearch.php?q="+str,true);
         xmlhttp.send();
       }
-?>
-
-<!DOCTYPE html>
-<html>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="\style\style.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="\style\login.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="\style\overview.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="\style\product.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="\style\cart.css" media="screen" />
-
-<head>
-    <title><?php getContent('seiteTitel'); ?></title>
-    <link rel="shortcut icon" type="image/x-icon" href="\res\pic\Logo.ico" />
+    </script>
 </head>
 
 <body>
