@@ -20,7 +20,6 @@ div.Header {
 	width:100%;
 	height:300px;
 	float: right;
-	display: inline;
 }
 
 div.MainContent {
@@ -31,21 +30,21 @@ div.MainContent {
 }
 
 div.Footer{
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  bottom: 0%;
   width: 99%;
-  height: 50px;;
+  height: 50px;
 }
 
 div.Title{
-	height:100%;
+	height:80%;
 	min-height: 100%;
 	width: 80%;
 	float: left
 }
 
 div.Account{
-	height:80%;
+	height:60%;
 	width: 5%;
 	float: left;
 	position: relative;
@@ -53,7 +52,7 @@ div.Account{
 }
 
 div.ShoppingCart{
-	height:80%;
+	height:60%;
 	width: 10%;
 	float: left;
 	position: relative;
@@ -66,6 +65,13 @@ div.LanguageChooser{
   float: left;
   position: relative;
   top: 0%;  
+}
+
+div.SearchBox{
+  height: 20%;
+  float: right;
+  bottom: 0%;
+  position: relative;
 }
 
 .Navigation {
@@ -272,4 +278,8 @@ div.AudioMain .MainPageNav{
 div.AdminMain .MainPageNav{
   width: 100%;
   height: 100%;
+}
+
+.adminSwitch{
+  width: 100%;
 }
