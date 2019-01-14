@@ -219,7 +219,7 @@ $(document).ready(function() {
         }
     })
 
-    $(".clickForProduct").click(function() {
+    $(".ProductList").on('click','.clickForProduct',function() {
         window.location = "/Product?Id=" + $(this).data("id");
     });
 
@@ -234,7 +234,6 @@ function addToCart(str){
             url: '/control/CartAjaxControl.php',
             type: 'POST',
             data: {'id' : str},
-            dataType: 'json',
             success: function(data){
                 document.getElementById("anzArtikel").innerHTML = data;    
             }       
@@ -244,6 +243,7 @@ function addToCart(str){
 
 function showResult(str){
     if(str.length == 0){
+        document.getElementById("livesearch").innerHTML = "";
         return;
     }
     else{
@@ -251,9 +251,12 @@ function showResult(str){
             url: '/control/LiveSearch.php',
             type: 'POST',
             data: {'searchText' : str},
-            dataType: 'json',
             success: function(data){
-                document.getElementById("livesearch").append(data);
+                document.getElementById("livesearch").innerHTML = data;
+
+                $(".ProductList").on('click','.clickForProduct',function() {
+                    window.location = "/Product?Id=" + $(this).data("id");
+                });
             }
         })
     }

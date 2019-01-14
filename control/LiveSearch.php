@@ -1,8 +1,8 @@
 <?php
 session_start();
 include("../text/text.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/model/Product.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/db/db.inc.php");
+include("../model/Product.php");
+include("../db/db.inc.php");
 
 class LiveSearch
 {
@@ -48,7 +48,9 @@ $searchText = "";
   echo '<div class="ProductList">';
         echo '<table>';
         foreach($resultList as $product){
-            echo '<tr class="clickForProduct" data-id="';
+            echo '<tr onclick="window.location = "/Product?id=';
+            echo $product->getId();
+            echo '" class="clickForProduct" data-id="';
             echo $product->getId();
             echo '">';
             echo '<td>';
