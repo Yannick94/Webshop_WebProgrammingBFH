@@ -11,9 +11,7 @@ include('header.php');
         }
     }
     echo '</form>';
-    echo '<form>';
     echo '<input type="text" size="30" onkeyup="showResult(this.value)">';
     echo '<div id="livesearch"></div>';
-    echo '</form>';
 include('footer.php');
 ?>
