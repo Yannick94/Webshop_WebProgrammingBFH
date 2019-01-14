@@ -283,3 +283,9 @@ div.AdminMain .MainPageNav{
 .adminSwitch{
   width: 100%;
 }
+
+div.AdminList{
+  display:table;
+  width:100%;
+  table-layout: auto;
+}
