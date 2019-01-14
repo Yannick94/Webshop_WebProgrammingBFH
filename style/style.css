@@ -196,7 +196,7 @@ img.Logo{
 	float: left;
 }
 
-.langButton {
+.langButton{
   background-color: Transparent;
   background-repeat:no-repeat;
   border: none;
@@ -243,4 +243,29 @@ img.Logo{
 .nextStep:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+div.HardwareMain div.SoftwareMain div.PeripherieMain div.AudioMain{
+  height: 20vh;
+  display:block;
+}
+
+div.HardwareMain .MainPageNav{
+  width: 100%;
+  height: 100%;
+}
+
+div.PeripherieMain .MainPageNav{
+  width: 100%;
+  height: 100%;
+}
+
+div.SoftwareMain .MainPageNav{
+  width: 100%;
+  height: 100%;
+}
+
+div.AudioMain .MainPageNav{
+  width: 100%;
+  height: 100%;
 }
