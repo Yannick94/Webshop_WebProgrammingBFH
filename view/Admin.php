@@ -4,7 +4,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "/control/CartControl.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 
 class AdminView{
-    private $productList;
+    private $orderList;
     private $userList;
     private $isUserMode;
 
@@ -13,35 +13,55 @@ class AdminView{
         if($this->isUserMode){
             $this->userList = $array;
         }else{
-            $this->productList = $array;
+            $this->orderList = $array;
         }
+    }
+
+    public function setMode($mode){
+        $this->isUserMode = $mode;
     }
 
     public function render(){
         if($this->isUserMode){
-            renderUserMode();
+            $this->renderUserMode();
         }else{
-            renderProductMode();
+            $this->renderOrderMode();
         }
     }
 
     private function renderUserMode(){
         echo '<form method="post" action="">';
-        echo '<button name="productMode" type="submit"/>';
+        echo '<button class="nextStep adminSwitch" name="orderMode" type="submit"><span>Switch to OrderMode</span></button>';
         echo '</form>';
     }
 
-    private function renderProductMode(){
+    private function renderOrderMode(){
         echo '<form method="post" action="">';
-        echo '<button name="userMode" type="submit"/>';
+        echo '<button class="nextStep adminSwitch" name="userMode" type="submit"><span>Switch to UserMode</span></button>';
         echo '</form>';
     }
 }
 
+if(isset($_POST['userMode'])){
+    header("Location: /Admin?page=1");
+}
+
+if(isset($_POST['orderMode'])){
+    header("Location: /Admin?page=2");
+}
+
+$view = new AdminView(array(),1);
+
 if(isset($_SESSION["IsAdmin"])){
     if($_SESSION["IsAdmin"] == "1"){
         if(isset($_GET["page"])){
-            
+            if($_GET["page"]=="1"){    
+                $view->setMode(1);
+                $view->render();
+            }else{
+                $view->setMode(0);
+                $view->render();
+            }
         }else{
             header("Loaction: /");
         }
