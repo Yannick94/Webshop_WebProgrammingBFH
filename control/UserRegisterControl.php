@@ -1,6 +1,6 @@
 <?php
 
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/db/db.inc.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/db/db.inc.php");
 
 class UserRegisterController {
 

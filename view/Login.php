@@ -1,7 +1,7 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/User.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/control/UserLoginControl.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/model/User.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/control/UserLoginControl.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 class UserLoginView{
     private $userLogin;
 

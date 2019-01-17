@@ -1,8 +1,8 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/Product.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/User.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/control/CheckoutControl.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/model/Product.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/model/User.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/control/CheckoutControl.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 
 class Checkout{
     private $productList;

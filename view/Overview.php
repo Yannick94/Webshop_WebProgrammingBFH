@@ -1,7 +1,7 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/Product.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/control/OverviewControl.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/public_html/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/model/Product.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/control/OverviewControl.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
 
 class Overview{
     private $productList;
