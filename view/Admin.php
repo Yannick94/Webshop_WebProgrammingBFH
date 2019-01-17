@@ -1,8 +1,8 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "/model/User.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/model/Order.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/control/AdminControl.php");
-include($_SERVER["DOCUMENT_ROOT"] . "/header.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/User.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/public_html/model/Order.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/public_html/control/AdminControl.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/public_html/header.php");
 
 class AdminView{
     private $displayList;
